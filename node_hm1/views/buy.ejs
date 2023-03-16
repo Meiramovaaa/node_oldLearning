@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %> 
+    <title> Payment </title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <div class="buy">
+        <div class="buy-modal">
+            <form method="POST" id="form" action="/api/mail">
+                <h2>Purchase details</h2>
+                <fieldset class="fieldset">
+                    <input type="text" name="number" placeholder="Enter your phone number">
+                </fieldset>
+                <!-- <fieldset class="fieldset"> -->
+                    <!-- <input type="hidden" name="user" value="<%=currentUser._id%>"> -->
+                <!-- </fieldset> -->
+                
+                <p>Total price:</p>
+                <p class="cost-p"> <%=cost %> $</p>
+                <fieldset class="fieldset">
+                    <button class="button" type="submit">Buy</button>
+                </fieldset>
+                
+            </form>
+        </div>
+        
+    </div>
+
+</body>
+</html>

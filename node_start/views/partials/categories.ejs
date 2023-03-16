@@ -1,0 +1,15 @@
+<div class="page-info">
+    <div class="page-header">
+        <h2>Категории</h2>
+    </div>
+
+    <%
+        categories.forEach(category => {
+    %>
+    <a class='list-item' href='?category=<%=category.slack%>'><%=category.name%></a>
+    <%
+    
+    });
+    %>
+   
+</div>

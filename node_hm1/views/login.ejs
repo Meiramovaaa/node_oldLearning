@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+	<%- include("partials/head.ejs") %> 
+</head>
+<body>
+	<%- include("partials/header.ejs") %>
+	<section class="page">
+		<div class="auth-form">
+            <h1>Login</h1>
+			<form class="form" method="POST" action="/api/auth/signin">
+                <fieldset class="fieldset">
+                    <input class="input" type="text" name="email" placeholder="Enter email">
+                </fieldset>
+                <fieldset class="fieldset">
+                    <input class="input" type="password" name="password" placeholder="Enter password">
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <button class="button registr-button" type="submit">Sign in</button>
+                </fieldset>
+			</form>
+
+            <div class="login-links">
+                <a href="/api/auth/google/signin"> <img src="/images/google.png" alt=""></a>
+                <a href="/api/auth/github/signin"> <img src="/images/github.png" alt=""></a>
+		
+            </div>
+        </div>
+	</section>
+</body>
+</html>

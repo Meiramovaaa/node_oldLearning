@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main</title>
+    <%- include("partials/head.ejs") %>
+
+</head>
+<body>
+    <%-  include("partials/header.ejs") %>
+
+    <section class="section">
+    
+        <div class="scroll-book">
+            <div class="scroll-item ">
+                <img class="img-scroll" src="images/scroll1.png" alt="">
+                <div class="scroll-info scroll-color1">
+                    <h2>Books</h2>
+                    <p>Gravida at praesent aliquam, at natoque at leo. Faucibus quam ipsum mi eget consectetur posuere dui vulputate magna.</p>
+                </div>
+            </div>
+
+            <div class="scroll-item ">
+                <img class="img-scroll" src="images/scroll2.png" alt="">
+                <div class="scroll-info scroll-color2">
+                    <h2>Books</h2>
+                    <p>Gravida at praesent aliquam, at natoque at leo. Faucibus quam ipsum mi eget consectetur posuere dui vulputate magna.</p>
+                </div>
+            </div>
+
+            <div class="scroll-item ">
+                <img class="img-scroll" src="images/scroll3.png" alt="">
+                <div class="scroll-info scroll-color3">
+                    <h2>Books</h2>
+                    <p>Gravida at praesent aliquam, at natoque at leo. Faucibus quam ipsum mi eget consectetur posuere dui vulputate magna.</p>
+                </div>
+            </div>
+
+            <div class="scroll-item ">
+                <img class="img-scroll" src="images/scroll1.png" alt="">
+                <div class="scroll-info scroll-color1">
+                    <h2>Books</h2>
+                    <p>Gravida at praesent aliquam, at natoque at leo. Faucibus quam ipsum mi eget consectetur posuere dui vulputate magna.</p>
+                </div>
+            </div>
+
+            <div class="scroll-item ">
+                <img class="img-scroll" src="images/scroll2.png" alt="">
+                <div class="scroll-info scroll-color2">
+                    <h2>Books</h2>
+                    <p>Gravida at praesent aliquam, at natoque at leo. Faucibus quam ipsum mi eget consectetur posuere dui vulputate magna.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="main">
+            
+            <%-include("partials/categories.ejs") %>
+
+            <div class="main-item">
+                <div class="main-books">
+                    <% 
+                        if(books.length>0){
+                        books.forEach(function(book){
+                    %>
+                    <a class="books" href="/detail/<%= book._id %>">
+                        <img class="img-cost" src="<%= book.img%>" alt="">
+                        <div class="book-cost">
+                                <p><%= book.title%></p>
+                                <p><%=book.cost%>$</p>
+                                <p><%=book.category.name%></p>
+                        </div>
+                    </a>
+                <%
+                    })
+                }else{
+                %>
+                        <h1>0 books</h1>
+                <%}%>
+    
+                </div>
+
+                <div class="pages">
+                    <%
+                    if(currentPage != 0){
+                    %>
+                        <a href="?page=<%=(currentPage-1)%>">Prev</a>
+                    <%}%>
+
+                    
+                    <%
+                    for(let i = 1; i <= pages; i++){
+                    %>
+                        <a href="?page=<%=i%>"><%=(i)%></a>
+                    <%}%>
+
+                    <%
+                    if(currentPage != pages-1){
+                    %>
+                        <a href="?page=<%=(currentPage+1)%>">Next</a>
+                    <%}%>
+                </div>
+            </div>
+            
+
+            
+        </div>
+        
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js" integrity="sha256-Ap4KLoCf1rXb52q+i3p0k2vjBsmownyBTE1EqlRiMwA=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+    <script src="/js/index.js"></script> 
+     
+</body>
+</html>

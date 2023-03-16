@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Главная</title>
+    <%- include('partials/head.ejs')%>
+</head>
+<body>
+    <%-  include('partials/header.ejs') %>
+
+<section class="container page">
+	<div class="page-content">
+			<h2 class="page-title">Блоги по программированию</h2>
+			<p class="page-desc">Популярные и лучшие публикации по программированию для начинающих
+ и профессиональных программистов и IT-специалистов.</p>
+
+ <div class="blogs">
+	<%
+		blogs.forEach(function(blog){
+
+		
+	%>
+	<div class="blog-item">
+		<img class="blog-item--img" src="<%= blog.img %>" alt="">
+		<div class="blog-header">
+			<h3> <a href="/details/<%=blog._id%>"> <%= blog.title%> </a>  </h3>
+		</div>
+		<p class="blog-desc">
+			<%= blog.description%>
+		</p>
+
+		<div class="blog-info">
+			<span class="link">
+				<img src="/images/date.svg" alt="">
+				<%= moment(blog.date).fromNow()%>
+			</span>
+			<span class="link">
+				<img src="/images/visibility.svg" alt="">
+				21
+			</span>
+			<a class="link">
+				<img src="/images/message.svg" alt="">
+				4
+			</a>
+			<span class="link">
+				<img src="/images/forums.svg" alt="">
+				<%=blog.category.name%>
+			</span>
+			
+			<a class="link" href="/profile/<%= blog.author.nickname%> ">
+				<img src="/images/person.svg" alt="">
+				<%= blog.author.nickname %>
+			</a>
+		</div>
+	</div>
+
+	<%
+		})
+	%>
+	
+	<% if(blogs.length == 0){%>
+	<h3>0 blogs</h3>
+
+	<%}%>
+
+	
+	<%
+		if(currentPage != 0){
+	%>
+			<a href="?page=<%=(currentPage - 1)%><%=(locals.category?("&category="+category) : "" )%><%=(locals.q?("&q="+q) : "" )%>">prev</a>
+	<%}%>
+
+	<%
+		for(let i = 0; i < pages; i++){
+	%>
+		<a href="?page=<%=(currentPage-1)%><%= (locals.category ? ("&category=" + category) : "")%><%= (locals.q ? ("&q=" + q) : "")%>"><%= (i+1) %></a>
+	<%}%>
+
+	<%
+		if(currentPage != pages - 1){
+	%>
+		<a href="?page=<%=(currentPage-1)%><%= (locals.category ? ("&category=" + category) : "")%><%= (locals.q ? ("&q=" + q) : "")%>">Next</a>
+	<%}%>
+</div>
+	</div>
+
+    <%- include('partials/categories.ejs') %>
+</section>	
+</body>
+</html>

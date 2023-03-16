@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>New book</title>
+	<%- include("partials/head.ejs") %> 
+</head>
+<body>
+	<%- include("partials/header.ejs") %> 
+
+	<section class="container page">
+		<div class="page-block">
+
+			<div class="page-header">
+				<h2>New book</h2>
+			</div>
+			
+			<form class="form" action="/api/books" method="POST" enctype="multipart/form-data">
+				
+			<fieldset class="fieldset">
+				<input class="input" type="text" name="title" placeholder="Title">
+			</fieldset>
+
+			<fieldset class="fieldset">
+				<select name="category" id="category_id" class="input">
+
+					<%
+						categories.forEach(category => {
+					%>
+						<option value="<%=category._id%>" class='list-item'><%=category.name%></option>
+					<%
+					
+					});
+					%>
+						
+				</select>
+			</fieldset class="fieldset">
+			
+			<fieldset class="fieldset">
+				<button class="button button-yellow input-file">
+					<input type="file" name="image">	
+					Choose the image
+				</button>
+			</fieldset>
+				
+			<fieldset class="fieldset">
+				<textarea class="input input-textarea" name="description" id="" cols="30" rows="10" placeholder="Description"></textarea>
+			</fieldset>
+
+			<fieldset class="fieldset">
+				<input class="input" type="text" name="cost" placeholder="Price in dollars"> 
+			</fieldset>
+			
+			<fieldset class="fieldset">
+				<button class="button" type="submit">Save</button>
+			</fieldset>
+			</form>
+
+		
+
+				<p class="text-danger"> The title and description cannot be empty!</p>
+
+
+		</div>
+
+	</section>
+	
+</body>
+</html>

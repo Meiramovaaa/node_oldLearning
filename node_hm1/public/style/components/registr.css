@@ -1,0 +1,97 @@
+.page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #232222;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 130px);
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-form h1, .main-profile h1{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-form .fieldset{
+    margin: 20px 0;
+}
+
+.auth-form input{
+    padding: 10px 30px;
+    display: block;
+    outline: none;
+
+}
+
+.registr-button{
+    display: block;
+    margin: 0 auto;
+    
+}
+
+.page-content {
+    width: 65%;
+    background-color: #fff;
+    padding: 65px;
+}
+
+.page-info {
+    width: calc(35% - 20px);
+    background-color: #fff;
+    padding: 65px;
+    margin-bottom: auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.blog-item--img {
+    width: 100%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.login-links{
+    display: flex;
+    align-items: center;
+}
+
+.login-links img{
+    width: 30px;
+}
+
+.page-desc {
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-block {
+    width: 100%;
+    background-color: #232222;
+    padding: 65px;
+}

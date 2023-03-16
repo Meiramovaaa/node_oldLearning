@@ -1,0 +1,30 @@
+.sidebar{
+    position: sticky;
+    background-color: #393939;
+    color: #fff;
+    width: fit-content;
+    padding: 40px 20px;
+    height: fit-content;
+    width: 300px;
+}
+
+.sidebar h3{
+    border-bottom: 1px solid #fff;
+    margin: 12px 0;
+}
+
+.checkbox{
+    margin: 10px 0;
+}
+
+.side-input{
+    display: flex;
+    align-items: center;
+}
+
+.side-input input{
+    outline: none;
+    border: none;
+    background-color: #292929;
+    padding: 10px;
+}

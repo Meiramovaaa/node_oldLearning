@@ -1,0 +1,37 @@
+<header class="header container">
+	<div class="header-logo">
+	    <a href="/index">Decode Blog</a>	
+	</div>
+	<form class="header-search" method="GET" action="/index">
+		<input type="hidden" name="page" value="0">
+		<input type="text" class="input-search" placeholder="<%=lnjson[ln]["Поиск по блогам"]%>" name="q">
+		<button type="submit" class="button button-search">
+			<img src="/images/search.svg" alt="">	
+			<%=lnjson[ln]["Найти"]%>
+		</button>
+	</form>
+
+	<div>
+
+		<%
+			if(typeof currentUser === 'object' && currentUser){
+		%>
+        <a href="/profile/<%= currentUser.nickname%>">
+            <img class="avatar" src="/images/avatar.png" alt="Avatar">
+        </a>
+
+		<% }else{%>
+
+        <div class="button-group">
+			<a href="">EN</a>
+			<a href="">KZ</a>
+			<a href="">RU</a>
+            <a href="/register" class="button"><%=lnjson[ln]["Регистрация"]%></a>
+            <a href="/login" class="button"><%=lnjson[ln]["Вход"]%></a>
+        </div>
+
+		<% }%>
+	</div>
+
+	
+</header>

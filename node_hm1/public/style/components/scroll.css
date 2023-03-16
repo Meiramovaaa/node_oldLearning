@@ -1,0 +1,108 @@
+.scroll-book{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 0 5%;
+    height: 200px;
+}
+
+.scroll-item{
+    display: flex;
+    width: calc(33.33% - 10px);
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+}
+.scroll-item>img{
+    width: 50%;
+}
+
+.scroll-color1{
+    background-color: #71C5F4;
+}
+.scroll-color2{
+    background-color: #AB71F4;
+}
+.scroll-color3{
+    background-color: #F471A8;
+}
+
+.img-scroll{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 1;
+}
+
+.scroll-info{
+    position: absolute;
+    left: 42%;
+    width: 50%;
+    padding: 20px 30px;
+    z-index: 0;
+    height: 180px;
+    overflow: hidden;
+}
+
+.scroll-info{
+    color: #fff;
+    opacity: 1;
+}
+
+.scroll-info h2{
+    font-size: 21px;
+    font-weight: bold;
+}
+.scroll-info p{
+    text-overflow:ellipsis ;
+}
+
+.draggable{
+    height: 200px;
+}
+
+@media (max-width:1230px){
+    .scroll-info h2{
+        font-size: 20px;
+    }
+    .scroll-info{
+        padding: 13px;
+    }
+}
+
+@media (max-width:990px){
+    .scroll-info p{
+        font-size: 10px;
+    }
+    .draggable{
+        height: 250px;
+    }
+}
+
+@media (max-width:730px){
+    .scroll-info h2{
+        font-size: 15px;
+    }
+    .draggable{
+        height: 150px;
+    }
+}
+@media (max-width:690px){
+    .scroll-info{
+        height: 116px;
+        overflow: hidden;
+    }
+}
+@media (max-width:590px){
+    .scroll-info{
+        height: 80px;
+    }
+    .scroll-info h2{
+        font-size: 12px;
+    }
+    .draggable{
+        height: 130px;
+    }
+}

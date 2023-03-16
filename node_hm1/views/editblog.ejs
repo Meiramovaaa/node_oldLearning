@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Edit</title>
+	<%- include("partials/head.ejs") %> 
+</head>
+<body>
+	<%- include("partials/header.ejs") %>
+
+	<section class="page">
+		<div class="page-block">
+
+			<div class="page-header">
+				<h2>Editting book</h2>
+			</div>
+			<form class="form" onsubmit="onSubmit(this, event)">
+				<input type="hidden" name="id" value="<%= book._id %>">
+				
+				<fieldset class="fieldset">
+					<input class="input" type="text" name="title" placeholder="Заголовок" value="<%= book.title %>">
+				</fieldset>
+
+				<fieldset class="fieldset">
+					<select name="category" id="category_id" class="input">
+						<%
+							categories.forEach(category => {
+								if(category._id.equals(book.category)){
+						%>
+							<option selected value="<%=category._id%>" class='list-item'><%=category.name%></option>
+						
+						<%}else{
+						%>
+							<option value="<%=category._id%>" class='list-item'><%=category.name%></option>
+						<%
+						}
+						});
+						%>
+					</select>
+				</fieldset>
+
+				<fieldset class="fieldset">
+					<button class="button button-yellow input-file">
+						<input type="file" name="image">	
+						Choose the image
+					</button>
+				</fieldset>
+					
+				<fieldset class="fieldset">
+					<textarea class="input input-textarea" name="description" id="" cols="30" rows="10" placeholder="Описание"><%= book.description %></textarea>
+				</fieldset>
+				<fieldset class="fieldset">
+					<input class="input" type="text" name="cost" value="<%=book.cost%>"> 
+				</fieldset>
+				<fieldset class="fieldset">
+					<button class="button" type="submit">Save</button>
+				</fieldset>
+			</form>
+
+
+
+
+
+		</div>
+
+	</section>
+	
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/editblog.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Редактировать блог</title>
+	<%- include("partials/head.ejs") %> 
+</head>
+<body>
+	<%- include("partials/header.ejs") %>	
+
+	<section class="container page">
+		<div class="page-block">
+
+			<div class="page-header">
+				<h2>Редактировать блог</h2>
+			</div>
+
+			<form class="form" onsubmit="onSubmit(this, event)">
+				<input type="hidden" name="_id" value="<%= blog._id%>">
+				<fieldset class="fieldset">
+					<input class="input" type="text" name="title" placeholder="Заголовок" value="<%= blog.title %>">
+				</fieldset>
+
+				<fieldset class="fieldset">
+				<select name="category" id="" class="input">
+                    
+					<%
+						categories.forEach(category => {
+							if(category._id.equals(blog.category)){
+					%>
+					<option selected value="<%=category._id%>" class='list-item'><%=category.name%></option>
+					
+					<%}else{
+					%>
+					<option value="<%=category._id%>" class='list-item'><%=category.name%></option>
+					<%
+					}
+					});
+					%>
+				
+				</select>
+			</fieldset class="fieldset">
+
+				<fieldset class="fieldset">
+					<button class="button button-yellow input-file">
+						<input type="file" name="image">	
+						Выберите картинку
+					</button>
+				</fieldset>
+					
+				<fieldset class="fieldset">
+					<textarea class="input input-textarea" name="description" id="" cols="30" rows="10" placeholder="Описание"><%=blog.title%></textarea>
+				</fieldset>
+
+				<fieldset class="fieldset">
+					<%
+						tags.forEach((tag, index) =>{
+
+					%>
+
+					<%
+							if(blog.tags.includes(tag._id)){
+					%>
+						<input type="checkbox" checked name="tags" value="<%=tag._id%>" id="tag-<%=index%>">
+						<label for="tag-<%=index%>"><%=tag.name%></label>
+
+					<%}else{%>
+						<input type="checkbox" name="tags" value="<%=tag._id%>" id="tag-<%=index%>">
+						<label for="tag-<%=index%>"><%=tag.name%></label>
+
+					<%}%>
+					<%
+						})
+					%>
+				</fieldset>
+
+				<fieldset class="fieldset">
+					<button class="button" type="submit">Сохранить</button>
+				</fieldset>
+			</form>
+
+			<p class="text-danger"> Заголовок и Описание не могут быть пустыми!</p>
+
+
+
+		</div>
+
+	</section>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
+	<script src="/js/editblog.js"></script>
+	
+	
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Профиль</title>
+	<%- include("partials/head.ejs") %> 
+		
+</head>
+<body>
+	<%- include("partials/header.ejs") %>
+
+<section class="container page">
+	<div class="page-content">
+		<div class="page-header">
+			
+			<%
+				if(typeof currentUser == 'object' && currentUser.nickname == author){
+			%>
+			<h2>Мои блоги</h2>
+			<a class="button" href="/newblog">Новый блог</a>
+			<%}else{%>
+				<h2>Блоги <%=author%></h2>
+			<span> </span>
+			<%
+			}%>
+		</div>
+
+		<div class="blogs">
+			<%
+				blogs.forEach(function(blog){
+
+				
+			%>
+            <div class="blog-item">
+				<img class="blog-item--img" src="<%= blog.img %>" alt="">
+				<div class="blog-header">
+					<h3> <a href="/details/<%= blog._id %>"> <%= blog.title%> </a>  </h3>
+
+					<%
+						if(typeof currentUser == 'object' && currentUser.nickname == author){
+					%>
+					
+					<span class="link">
+						<img src="/images/dots.svg" alt="">
+							Еще
+						<ul class="dropdown">
+							<li> <a href="/editblog?id=<%= blog._id %>">Редактировать</a> </li>
+							<li><a onclick="deleteBlog( '<%= blog._id %>' )" class="danger">Удалить</a></li>
+						</ul>
+					</span>
+
+					<%}else{%>
+
+					<span> </span>
+					<%
+					}%>
+					
+				</div>
+				<p class="blog-desc">
+					<%= blog.description%>
+				</p>
+
+				<div class="blog-info">
+					<span class="link">
+						<img src="/images/date.svg" alt="">
+						<%= blog.date%>
+					</span>
+					<span class="link">
+						<img src="/images/visibility.svg" alt="">
+						21
+					</span>
+					<a class="link">
+						<img src="/images/message.svg" alt="">
+						4
+					</a>
+					<span class="link">
+						<img src="/images/forums.svg" alt="">
+						<%=blog.category.name%>
+					</span>
+					<a class="link" href="/profile/<%=author %>">
+						<img src="/images/person.svg" alt="">
+						<%= author%>
+					</a>
+				</div>
+			</div>
+
+			<%
+				})
+			%>
+			
+			<h3>0 blogs</h3>
+        </div>
+	</div>
+	<div class="page-info">
+		<div class="user-profile">
+			<img class="user-profile--ava" src="/images/avatar.png" alt="">
+
+			<h1>Елнур Сеитжанов</h1>
+			<h2>В основном пишу про веб - разработку, на React & Redux</h2>
+			<p>285 постов за все время</p>
+			<a href="" class="button">Редактировать</a>
+			<a href="/api/auth/signout" class="button button-danger"> Выход</a>
+		</div>
+	</div>
+</section>	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
+<script src="/js/profile.js"></script>
+</body>
+</html>

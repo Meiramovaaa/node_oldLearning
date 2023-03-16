@@ -1,0 +1,40 @@
+.buy{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buy-modal{
+    background-color: #646a6d;
+    padding: 50px 80px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.buy-modal h2{
+    color: #fff;
+    font-size: 25px;
+}
+
+.buy-modal input{
+    margin: 15px 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.buy-modal p{
+    color: #fff;
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+.cost-p{
+    color: red;
+    font-size: 20px;
+}

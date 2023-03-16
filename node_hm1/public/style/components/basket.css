@@ -1,0 +1,45 @@
+.basket{
+    position: relative;
+}
+
+.basket-num{
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 5px 8px;
+    border-radius: 50%;
+}
+
+.basket-section{
+    border-bottom: 2px solid #e2e2e2;
+}
+
+.basket-cost{
+    margin-left: 80px;
+}
+
+.basket-info{
+    
+    margin-bottom: 30px;
+}
+.basket-info h1{
+    margin-bottom: 10px;
+}
+
+.basket-res{
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.basket-res h3{
+    margin-right: 30px;
+}
+
+.history-icon{
+    width: 30px;
+    filter: invert(90%) sepia(5%) saturate(0%) hue-rotate(158deg) brightness(88%) contrast(86%);
+}

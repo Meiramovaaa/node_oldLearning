@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %> 
+    <title>Book-details</title>
+</head>
+<body data-authorid="<%= book.author._id%>">
+    <%- include("partials/header.ejs") %> 
+    
+    <section class="section">
+        <%
+            // books.forEach(function(book){
+        %>
+        <div class="detail">
+            <div class="detail-header">
+                <div>
+                    <h1> <%= book.title%></h1>
+                    
+                    
+                </div>
+
+                <% if(currentUser && typeof currentUser === 'object'){
+                        if(currentUser.nickname === book.author.nickname){
+                %>
+                    <div class='detail-button'>
+                        <fieldset class="fieldset">
+                            <a href="/editblog/<%= book._id%>"><button class="button" type="submit">Edit</button></a> 
+                        </fieldset>
+
+                        <button onclick="deleteBook('<%= book._id%>')" class="button" type="submit">Delete</button>
+                    </div>
+
+                <%
+                }else{
+                %>
+                <form class="form" action="/api/basket" method="POST">
+                    <fieldset>
+                        <input type="hidden" value="<%= currentUser._id%>" name="user">
+                    </fieldset>
+                    <fieldset>
+                        <input type="hidden" value="<%= book._id%>" name="book">    
+                    </fieldset>
+                    <fieldset class="fieldset">
+                            <button type="submit"  class="button addToBasket">Add to basket</button>
+                    </fieldset>
+                </form>
+
+                <%}
+            }%>
+            </div>
+            
+            <img class="detail-img"  src="<%= book.img%>" alt="">
+            <div class="categories">
+                <p>Categ name:</p> 
+                <span><%=book.category.name%></span>
+            </div>
+            <div class="categories">
+                <p>Description:</p> 
+                <span><%= book.description%></span> <br>
+            </div>
+
+            <div class="categories">
+                <p>Cost: </p>
+                <span> <%=book.cost%> $</span>
+            </div>
+            
+           
+            <div class="comments" id = "comments">
+            </div>
+
+            <div class="rating">
+                <i class="rating__star far fa-star"></i>
+                <i class="rating__star far fa-star"></i>
+                <i class="rating__star far fa-star"></i>
+                <i class="rating__star far fa-star"></i>
+                <i class="rating__star far fa-star"></i>
+            </div>
+
+            <%
+                if(typeof currentUser === 'object' && currentUser){
+            %>
+            <span class="comment-add">
+                <textarea id="comment-text" name="" class="comment-textarea" placeholder="Введит текст комментария"></textarea>
+                <button id="add-comment" class="button">Send</button>
+            </span>
+
+            <% }else{%>
+        
+            <span class="comment-warning">
+                To leave a comment <a href="/register">register</a> , or  <a href="/login">login</a>  to an account.
+            </span>
+
+            <%}%>
+
+        </div>
+
+        <% %>
+    </section>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/js/comment.js"> </script>
+    <script src="/js/profile.js"></script>
+    
+</body>
+</html>

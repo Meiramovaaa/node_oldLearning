@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+    <title>History</title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <section class="detail">
+        <h1>Your purchases:</h1>
+        <%  
+        if(histories.length>0){
+            histories.forEach(history => {
+        %>
+            <div class="detail-page">
+                    <h2 class="detail-title"> <span> Title: </span> <%=history.book.title%> </h2>
+                    <img src="<%=history.book.img%>" alt="">
+                    <div class="detail-item">
+                        
+                        <p> <span> Description: </span><%=history.book.description%></p>
+                        <p> <span>Cost: </span> <%=history.book.cost%> $</p><br>
+                        <a href="" class="author"><p> <span>Author: </span> <%=history.user.nickname%>e</a>
+                    </div>
+            </div>
+            <hr>
+        <%
+            });
+        }else{
+        %>
+        <h1>An empty story</h1>
+        <%
+        }
+        %>
+            
+               
+    </section>
+</body>
+</html>

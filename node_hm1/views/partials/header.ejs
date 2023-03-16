@@ -1,0 +1,56 @@
+<header class="header" >
+        <div class="header-logos">
+            <img src="images/header-logo1.png" alt="">
+            <a href="../index"><img src="/images/header-logo2.png" alt=""></a> 
+        </div>
+    
+        <div class="header-search">
+            <img src="/images/header-search.png" alt="">
+            <form class="form1" method="GET">
+                <input type="hidden" name="page" value="0">
+                <input class="header-input" type="text" name="q" placeholder="Search for the book you want and read it now... Sherlock Holmes, Harry Pot...">
+                <button type="submit" class="button button-search">	
+                    Найти
+                </button>
+			</form>
+        </div>
+    
+        <div class="header-icon">
+            
+            <%
+                if(typeof currentUser === 'object' && currentUser){
+                
+            %>
+            <a class="basket" href="/history">
+                 <img class="history-icon" src="/images/history.svg" alt="">
+                <p class="basket-num"><%=history_num%></p>
+            </a>
+            <a class="basket" href="/basket">
+                <img class="basket-icon" src="/images/basket.png" alt="">
+                <p class="basket-num"><%=basket_num%></p>
+            </a>
+            <a href="../profile/<%= currentUser.nickname%>"><img class="header-user" src="/images/header-user.png" alt=""></a>
+            <fieldset class="fieldset">
+               <a href="/api/auth/signout"><button class="button" type="submit">Sign Out</button></a> 
+            </fieldset>
+            <%    
+                }else{ 
+            %>
+
+            
+
+           <fieldset class="fieldset">
+               <a href="/register"><button class="button" type="submit">Sign Up</button></a> 
+             </fieldset>
+    
+            <fieldset class="fieldset">
+                <a href="/login"><button class="button" type="submit">Login</button></a> 
+            </fieldset>
+
+            <%     
+                }%>
+        </div>
+        
+
+    
+</header>

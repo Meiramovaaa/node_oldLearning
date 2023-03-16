@@ -1,0 +1,17 @@
+<div class="sidebar">
+
+    <h3>Popular Categories</h3>
+
+    <%
+        categories.forEach(category => {
+    
+    %>
+        <div class="checkbox">
+            <a class='list-item' href='?category=<%=category.slack%>'><%=category.name%></a>
+        </div>
+    <%
+        });
+    %>
+    
+    
+</div>

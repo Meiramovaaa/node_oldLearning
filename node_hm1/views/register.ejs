@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Rigistr</title>
+    <%- include("partials/head.ejs") %> 
+</head>
+<body>
+
+    <%- include("partials/header.ejs") %>
+
+    <section class="page">
+		<div class="auth-form">
+            <h1>Sign Up</h1>
+			<form class="form" action="/api/auth/signup" method="POST">
+                <fieldset class="fieldset">
+                    <input class="input" type="text" name="email" placeholder="Enter email">
+                </fieldset>
+                <fieldset class="fieldset">
+                    <input class="input" type="text" name="full_name" placeholder="Enter Full name">
+                </fieldset>
+                <fieldset class="fieldset">
+                    <input class="input" type="text" name="nickname" placeholder="Enter Nickname">
+                </fieldset>
+                <fieldset class="fieldset">
+                    <input class="input" type="password" name="password" placeholder="Enter password">
+                </fieldset>
+                <fieldset class="fieldset">
+                    <input class="input" type="password" name="password2" placeholder="Enter password">
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <button class="button registr-button" type="submit">Sign Up</button>
+                </fieldset>
+			</form>
+		</div>
+	</section>
+</body>
+</html>
